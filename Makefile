@@ -1,6 +1,6 @@
 # uncomment the one that's your C++ compiler
 #CXX	= c++
-#CXX	= g++
+CXX	= g++
 # for debug
 #CXXFLAGS += -g -Wall -O0
 CXXFLAGS += -Wall
