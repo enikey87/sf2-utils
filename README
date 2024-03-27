@@ -1,3 +1,23 @@
+### Prepare
+
+```
+sudo apt install g++ python3
+```
+
+### Build
+
+```
+make all
+```
+
+### Run
+
+```shell
+./sf-split.sh PATH_TO_SOUNDFONT.sf2
+```
+
+### Original README
+
 Based on
 
 iffdigest v0.3  A lightweight parser for in-memory EA-IFF-85/RIFF structures

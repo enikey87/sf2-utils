@@ -5,7 +5,7 @@ CXX	= g++
 #CXXFLAGS += -g -Wall -O0
 CXXFLAGS += -Wall
 
-all:	sf2-split sf2-test
+all:	sf2-split sf2-test sf2-keyrange
 
 iffdigest.o:	iffdigest.cc iffdigest.h
 	$(CXX) $(CXXFLAGS) -c iffdigest.cc
@@ -36,6 +36,9 @@ sf2-test.o:	sf2-test.cc iffdigest.h sf2.h
 sf2-split.o: sf2-split.cc iffdigest.h sf2.h
 	$(CXX) $(CXXFLAGS) -c sf2-split.cc
 
+sf2-keyrange.o: sf2-keyrange.cc iffdigest.h sf2.h
+	$(CXX) $(CXXFLAGS) -c sf2-keyrange.cc
+
 
 sf2-split: sf2.o sf2filesplitter.o sf2-split.o iffdigest.o
 	$(CXX) $(LDFLAGS) -o sf2-split sf2.o sf2filesplitter.o sf2-split.o iffdigest.o
@@ -43,6 +46,9 @@ sf2-split: sf2.o sf2filesplitter.o sf2-split.o iffdigest.o
 sf2-test: sf2.o sf2-test.o iffdigest.o
 	$(CXX) $(LDFLAGS) -o sf2-test sf2.o sf2-test.o iffdigest.o
 
+sf2-keyrange: sf2.o sf2-keyrange.o iffdigest.o
+	$(CXX) $(LDFLAGS) -o sf2-keyrange sf2.o sf2-keyrange.o iffdigest.o
+
 
 clean:
-	/bin/rm -f iffdigest.o ifflist.o ifflist wavtest.o wavtest sf2.o sf2-split.o sf2-split sf2-test.o sf2-test
+	/bin/rm -f iffdigest.o ifflist.o ifflist wavtest.o wavtest sf2.o sf2-split.o sf2-split sf2-test.o sf2-test sf2-keyrange.o sf2-keyrange
